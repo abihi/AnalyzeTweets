@@ -1,9 +1,17 @@
-#!flask/bin/python
-from celery import Celery
+from __future__ import absolute_import, unicode_literals
+from .celery import app
 
-app = Celery('tasks')
-app.config_from_object('celeryconfig')
 
 @app.task
 def add(x, y):
     return x + y
+
+
+@app.task
+def mul(x, y):
+    return x * y
+
+
+@app.task
+def xsum(numbers):
+    return sum(numbers)
