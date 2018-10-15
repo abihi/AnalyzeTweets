@@ -2,7 +2,10 @@ import json
 import os
 import glob
 
-path = "C:/Users/bihi/Desktop/data/"
+from __future__ import absolute_import, unicode_literals
+from .celery import app
+
+path = "data/"
 
 def is_json(myjson):
   try:
@@ -41,7 +44,8 @@ def extract_text(twitter_data):
 
     return texts
 
-def main():
+@app.task
+def analyze_tweets():
     files = os.listdir(os.getcwd())
     if 'tweets.py' in files:
         files.remove('tweets.py')
@@ -61,5 +65,3 @@ def main():
     print(pronoun_counts)
     print(unique_tweets)
     print(frequencies)
-
-main()
