@@ -1,7 +1,10 @@
 from __future__ import absolute_import, unicode_literals
-from .celery import app
 
-import tweets
+import sys
+sys.path.insert(0, '/home/ubuntu/a3/proj')
+
+from .celery import app
+from tweets import *
 
 @app.task
 def add(x, y):
@@ -10,7 +13,6 @@ def add(x, y):
 @app.task
 def mul(x, y):
     return x * y
-
 
 @app.task
 def xsum(numbers):
