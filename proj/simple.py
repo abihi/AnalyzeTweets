@@ -48,7 +48,7 @@ def analyze():
     while(result.ready() != True):
         print("Waiting for result...")
         sleep(10)
-    return result.get(timeout=1)
+    return result.get(timeout=10)
 
 if __name__ == '__main__':
     interface.run(host='0.0.0.0',debug=True)

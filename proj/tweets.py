@@ -44,8 +44,7 @@ def create_json(pronouns, counts, frequencies):
     for i in range(len(pronouns)):
         data[pronouns[i]] = []
         data[pronouns[i]].append({
-            #'pronoun' : pronouns[i],
             'count' : counts[i],
             'frequency' : frequencies[i]
         })
-    return data
+    return json.dumps(data)
