@@ -11,7 +11,7 @@ interface.config['CELERY_RESULT_BACKEND'] = 'pyamqp://guest@localhost//'
 
 @app.route('/add', methods=['GET'])
 def celery_add(x, y):
-    task = add(x, y)
+    task = add.delay(x, y)
     return task
 
 if __name__ == '__main__':
