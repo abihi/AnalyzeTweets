@@ -47,4 +47,4 @@ def create_json(pronouns, counts, frequencies):
             'count' : counts[i],
             'frequency' : frequencies[i]
         })
-    return data
+    return json.dumps(data)
