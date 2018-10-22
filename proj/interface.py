@@ -1,4 +1,8 @@
 from flask import Flask
+
+import sys
+sys.path.insert(0, '/home/ubuntu/cloud-computing/proj')
+
 from .celery import app
 from tasks import add
 
